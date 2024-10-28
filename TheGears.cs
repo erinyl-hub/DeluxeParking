@@ -76,52 +76,5 @@ namespace DeluxeParking
             return null;
         }
 
-
-
-        public Car CarGenerator()
-        {
-            Random random = new Random();
-            VehicleInfo vehicleInfo = new VehicleInfo();
-
-            string vehicleReg = VehicleRegistration();
-            int rnd = random.Next(0, 17);
-            string color = vehicleInfo.colors[rnd];
-            bool electricCar = random.Next(0, 2) == 0 ? false : true;
-
-            Car car = new Car(vehicleReg, color, electricCar);
-            return car;
-        }
-
-        public Motorcycle McGenerator()
-        {
-            Random random = new Random();
-            VehicleInfo vehicleInfo = new VehicleInfo();
-
-            string vehicleReg = VehicleRegistration();
-            int rnd = random.Next(0, 17);
-            string color = vehicleInfo.colors[rnd];
-            rnd = random.Next(0, 16);
-            string brand = vehicleInfo.motorcycleBrands[rnd];
-
-            Motorcycle mc = new Motorcycle(vehicleReg, color, brand);
-            return mc;
-        }
-
-        public Bus BusGenerator()
-        {
-            Random random = new Random();
-            VehicleInfo vehicleInfo = new VehicleInfo();
-
-            string vehicleReg = VehicleRegistration();
-            int rnd = random.Next(0, 17);
-            string color = vehicleInfo.colors[rnd];
-            int people = random.Next(15, 46);
-
-            Bus bus = new Bus(vehicleReg, color, people);
-            return bus;
-        }
-
-
-
     }
 }
