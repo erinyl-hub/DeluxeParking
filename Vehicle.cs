@@ -8,10 +8,10 @@ namespace DeluxeParking
 {
     internal class Vehicle
     {
-        public int RegistryNumber { get; set; }
+        public string RegistryNumber { get; set; }
         public string VehicleColor { get; set; }
 
-        public Vehicle(int registryNumber, string vehicleColor)
+        public Vehicle(string registryNumber, string vehicleColor)
         {
             RegistryNumber = registryNumber;
             VehicleColor = vehicleColor;
@@ -22,7 +22,7 @@ namespace DeluxeParking
     {
         public bool ElectricCar { get; set; }
 
-        public Car(int registryNumber, string vehicleColor, bool electricCar) : base(registryNumber, vehicleColor)
+        public Car(string registryNumber, string vehicleColor, bool electricCar) : base(registryNumber, vehicleColor)
         {
             ElectricCar = electricCar;
         }
@@ -32,7 +32,7 @@ namespace DeluxeParking
     {
         public string Brand { get; set; }
 
-        public Motorcycle(int registryNumber, string vehicleColor, string brand) : base(registryNumber, vehicleColor)
+        public Motorcycle(string registryNumber, string vehicleColor, string brand) : base(registryNumber, vehicleColor)
         {
             Brand = brand;
         }
@@ -42,7 +42,7 @@ namespace DeluxeParking
     {
         public int Passengers { get; set; }
 
-        public Bus(int registryNumber, string vehicleColor, int passengers) : base(registryNumber, vehicleColor)
+        public Bus(string registryNumber, string vehicleColor, int passengers) : base(registryNumber, vehicleColor)
         {
             Passengers = passengers;
         }
