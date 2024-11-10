@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace DeluxeParking
 {
-    internal class TheGears
+    internal class TheFactory
     {
-        public string VehicleRegistration()
+        private string VehicleRegistration()
         {
             string vehicleReg = LetterGenerator();
             vehicleReg = vehicleReg + NumberGenerator();
             return vehicleReg;
         }
 
-        public string LetterGenerator()
+        private string LetterGenerator()
         {
             string regLetters = "";
 
@@ -29,7 +29,7 @@ namespace DeluxeParking
             return regLetters;
         }
 
-        public string NumberGenerator()
+        private string NumberGenerator()
         {
             string regNumber = "";
 
@@ -42,14 +42,16 @@ namespace DeluxeParking
         }
 
    
-        public Vehicle VehicleGenerator(int VehicaleType)
+        public Vehicle VehicleGenerator()
         {
             Random random = new Random();
+            int VehicaleType = random.Next(0, 3);
             VehicleInfo vehicleInfo = new VehicleInfo();
 
             string vehicleReg = VehicleRegistration();
             int rnd = random.Next(0, 17);
             string color = vehicleInfo.colors[rnd];
+            
 
             switch (VehicaleType)
             {
@@ -75,6 +77,7 @@ namespace DeluxeParking
             }
             return null;
         }
+       
 
     }
 }

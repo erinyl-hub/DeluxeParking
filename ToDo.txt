@@ -1,0 +1,19 @@
+﻿
+
+
+
+
+
+
+
+
+Har metoder för att skappa fordon.
+Fordonen sparas i en lista och array, där array representerar vilken parkeing de har.
+
+Skappa metod som läser av array och hämtar infon om fordonet från listan och skriver ut platser.
+Fundera på lösning för hur två fordon ska parkera på samma plats, samt hur ett fordon ska täcka två platser.
+
+Skappa metod som värderar parkeringsplatser.
+
+
+
