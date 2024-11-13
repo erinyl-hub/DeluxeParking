@@ -85,11 +85,11 @@ namespace DeluxeParking
             {
                 parkingCode += "1";
             }
-            else if (garage[index].Vehicles[0].VehicleType == 1)
+            else if (garage[index].Vehicles[0].VehicleType == 1 || garage[index].Vehicles[0].VehicleType == 2)
             {
                 parkingCode += "2";
             }
-            else if (garage[index].Vehicles[0].VehicleType == 2)
+            else if (garage[index].Vehicles[0].VehicleType == 3)
             {
                 parkingCode += "3";
             }
@@ -119,24 +119,36 @@ namespace DeluxeParking
 
         public static int TheParker(int[] ParkingSpotValue)
         {
-
             for (int i = 1; i < 8; i++)
             {
-
                 for (int j = 0; j < ParkingSpotValue.Length; j++)
                 {
-
-
                     if ((i) == ParkingSpotValue[j])
                     {
                         return (j);
                     }
-
                 }
-
             }
-
             return 55;
+        }
+
+        public static bool DoubleParkMc(ParkingSpace[] garage, Vehicle vehicle)
+        {
+            bool park;
+
+            for(int i = 0; i < garage.Length; i++)
+            {
+                if (garage[i].IsOccupied)
+                {
+                    if (garage[i].Vehicles.Count < 2 && garage[i].Vehicles[0].VehicleType == 2)
+                    {
+                        garage[i].Vehicles.Add(vehicle);
+
+                        return false;
+                    }
+                }                 
+            }
+            return true;
         }
 
                  

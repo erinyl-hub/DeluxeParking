@@ -31,14 +31,34 @@ namespace DeluxeParking
                             TheFactory theFactory = new TheFactory();
                             Vehicle vehicle = theFactory.VehicleGenerator();
 
-
-
                             //string input = Console.ReadLine();
                             //int amount = int.Parse(input);
 
-                            parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                         
-                            garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                            Type type = vehicle.GetType();
+
+                            if (type == typeof(Motorcycle))
+                            {
+                                if(OptimalParking.DoubleParkMc(garage, vehicle))
+                                {
+                                    parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                }                           
+                            }
+
+                            else if (type == typeof(Car))
+                            {                              
+                                    parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);                            
+                            }
+
+                            else if (type == typeof(Bus))
+                            {
+                                parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                                garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                            }
+
+
+                            
 
 
 

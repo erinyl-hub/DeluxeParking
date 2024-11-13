@@ -35,7 +35,7 @@ namespace DeluxeParking
     internal class Motorcycle : Vehicle
     {
         public string Brand { get; set; }
-        public override int VehicleType { get; set; } = 1;
+        public override int VehicleType { get; set; } = 2;
 
 
         public Motorcycle(string registryNumber, string vehicleColor, string brand) : base(registryNumber, vehicleColor)
@@ -47,7 +47,7 @@ namespace DeluxeParking
     internal class Bus : Vehicle
     {
         public int Passengers { get; set; }
-        public override int VehicleType { get; set; } = 2;
+        public override int VehicleType { get; set; } = 3;
 
 
         public Bus(string registryNumber, string vehicleColor, int passengers) : base(registryNumber, vehicleColor)
