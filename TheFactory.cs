@@ -45,7 +45,7 @@ namespace DeluxeParking
         public Vehicle VehicleGenerator()
         {
             Random random = new Random();
-            int VehicaleType = random.Next(0, 3);
+            int VehicaleType = random.Next(0, 2); // Måste ändra tillbaka
             VehicleInfo vehicleInfo = new VehicleInfo();
 
             string vehicleReg = VehicleRegistration();

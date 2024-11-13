@@ -13,14 +13,16 @@ namespace DeluxeParking
 
         public static void RunGarage()
         {
-            string[] garage = new string[15];
-            List<Vehicle> vehicles = new List<Vehicle>();
+            ParkingSpace[] garage = new ParkingSpace[15];
+
+            ParkingSpace.GenerateParking(garage);
 
             while (true)
             {
                 Console.WriteLine("Meny Val:");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 int switchChoise = keyInfo.KeyChar - '0';
+                int[] parkingSpotValues;
 
                 switch (switchChoise)
                 {
@@ -31,98 +33,64 @@ namespace DeluxeParking
 
 
 
-                            vehicles.Add(vehicle);
+                            string input = Console.ReadLine();
 
-                            Console.WriteLine("Plats i garaget?");
+                            int amount = int.Parse(input);
 
-                            keyInfo = Console.ReadKey(true);
-                            switchChoise = keyInfo.KeyChar - '0';
 
-                            garage[switchChoise] = vehicle.RegistryNumber;
+
+
+                            garage[amount].Vehicles.Add(vehicle);
+
+
+
 
 
                             break;
                         }
                     case 2:
                         {
-                            Console.WriteLine("case 2:");
-
-                            keyInfo = Console.ReadKey(true);
-                            switchChoise = keyInfo.KeyChar - '0';
+                            /*int[] */parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
 
 
+
+                            Console.Clear();
                             for (int i = 0; i < garage.Length; i++)
                             {
-                                if (garage[i] == null)
+
+                                if (garage[i].IsOccupied == true)
                                 {
-                                    Console.WriteLine("Parkeringsplats " + (i + 1) + ": Tom");
-                                }
-                                
-                                for (int j = 0; j < vehicles.Count; j++)
-                                {
-                                    if (vehicles[j].RegistryNumber == garage[i])
-                                    {
-
-
-
-
-
-
-
-
-
-                                    }
-                                }
-
-
-
-                               
-                            }
-                            Console.WriteLine("___________________________________");
-
-
-
-
-
-                            //Vehicle vehicle = garage[switchChoise];
-                            //Console.WriteLine("Typ: " + vehicle.GetType + " Reg nummer: " + vehicle.RegistryNumber + " Färg: " + vehicle.VehicleColor);
-
-
-
-                            foreach (Vehicle vehicle in vehicles)
-                            {
-
-                                Type getType = vehicle.GetType();
-
-                                if (getType == typeof(Car))
-                                {
-                                    Car car = (Car) vehicle;
-                                    Console.WriteLine("Bil " + " Reg nummer: " + car.RegistryNumber + " Färg: " + car.VehicleColor);
-                                }
-
-                                else if (getType == typeof(Motorcycle))
-                                {
-                                    Motorcycle motorcycle = (Motorcycle) vehicle;
-                                    Console.WriteLine("MC " + " Reg nummer: " + motorcycle.RegistryNumber + " Färg: " + motorcycle.VehicleColor);
-
+                                    Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | " + parkingSpotValues[i]);
                                 }
                                 else
                                 {
-                                    Bus bus = (Bus) vehicle;
-                                    Console.WriteLine("Buss " + " Reg nummer: " + bus.RegistryNumber + " Färg: " + bus.VehicleColor);
-
+                                    Console.WriteLine("Tomt   |    " + parkingSpotValues[i]);
                                 }
 
+
                             }
-
-
-
 
 
                             break;
                         }
                     default:
                         {
+                            Console.Clear();
+                            for (int i = 0; i < garage.Length; i++)
+                            {
+                                
+                                if (garage[i].IsOccupied == true)
+                                {
+                                    Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | ");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Tomt");
+                                }
+                               
+
+                            }
+
                             Console.WriteLine("övrigt:");
                             break;
                         }

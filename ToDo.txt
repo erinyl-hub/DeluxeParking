@@ -10,8 +10,14 @@
 Har metoder för att skappa fordon.
 Fordonen sparas i en lista och array, där array representerar vilken parkeing de har.
 
-Skappa metod som läser av array och hämtar infon om fordonet från listan och skriver ut platser.
+Garage består av array med 15 element, varje element inehåller ett objekt av typen "ParkingSpace", som i sin tur
+innehåller en lista av typen "Vehicles" och en bool som retunerar true om listan innehåller ett fordon.
+Detta gör möjligt för två fordon att parkera på samma plats.
+
 Fundera på lösning för hur två fordon ska parkera på samma plats, samt hur ett fordon ska täcka två platser.
+
+
+
 
 Skappa metod som värderar parkeringsplatser.
 
