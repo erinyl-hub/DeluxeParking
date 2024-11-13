@@ -117,7 +117,7 @@ namespace DeluxeParking
         }
 
 
-        public static int TheParkerOne(int[] ParkingSpotValue)
+        public static int TheParker(int[] ParkingSpotValue)
         {
             for (int i = 1; i < 8; i++)
             {
@@ -227,20 +227,6 @@ namespace DeluxeParking
 
         }
 
-        public static int TheParkerTwo(int[] ParkingSpotValue)
-        {
-            for (int i = 1; i < 8; i++)
-            {
-                for (int j = 0; j < ParkingSpotValue.Length; j++)
-                {
-                    if ((i) == ParkingSpotValue[j])
-                    {
-                        return (j);
-                    }
-                }
-            }
-            return 5555;
-        }
 
 
 

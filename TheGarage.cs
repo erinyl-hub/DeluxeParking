@@ -42,21 +42,21 @@ namespace DeluxeParking
                                 if(OptimalParking.DoubleParkMc(garage, vehicle))
                                 {
                                     parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                    garage[OptimalParking.TheParkerOne(parkingSpotValues)].Vehicles.Add(vehicle);
+                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
                                 }                           
                             }
 
                             else if (type == typeof(Car))
                             {                              
                                     parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                    garage[OptimalParking.TheParkerOne(parkingSpotValues)].Vehicles.Add(vehicle);                            
+                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);                            
                             }
 
                             else if (type == typeof(Bus))
                             {
                                 parkingSpotValues = OptimalParking.OptimalParkingTwo(garage);
-                                garage[OptimalParking.TheParkerTwo(parkingSpotValues)].Vehicles.Add(vehicle);
-                                garage[OptimalParking.TheParkerTwo(parkingSpotValues) + 1].Vehicles.Add(vehicle);
+                                garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                garage[OptimalParking.TheParker(parkingSpotValues) + 1].Vehicles.Add(vehicle);
                             }
 
 
@@ -64,7 +64,7 @@ namespace DeluxeParking
 
 
 
-
+                            
 
                             break;
                         }
