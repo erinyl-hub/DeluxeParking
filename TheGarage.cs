@@ -33,14 +33,12 @@ namespace DeluxeParking
 
 
 
-                            string input = Console.ReadLine();
+                            //string input = Console.ReadLine();
+                            //int amount = int.Parse(input);
 
-                            int amount = int.Parse(input);
-
-
-
-
-                            garage[amount].Vehicles.Add(vehicle);
+                            parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                         
+                            garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
 
 
 
@@ -50,7 +48,7 @@ namespace DeluxeParking
                         }
                     case 2:
                         {
-                            /*int[] */parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                            /*int[] */
 
 
 
@@ -60,11 +58,11 @@ namespace DeluxeParking
 
                                 if (garage[i].IsOccupied == true)
                                 {
-                                    Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | " + parkingSpotValues[i]);
+                                    Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | " /*+ parkingSpotValues[i]*/);
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Tomt   |    " + parkingSpotValues[i]);
+                                    Console.WriteLine("Tomt   |    " /*+ parkingSpotValues[i]*/);
                                 }
 
 

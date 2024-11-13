@@ -49,7 +49,7 @@ namespace DeluxeParking
 
                     else if (i == 13)
                     {
-                    
+
                         parkingCode += ReturnNumber(garage, (i - 2));
                         parkingCode += ReturnNumber(garage, (i - 1));
                         parkingCode += ReturnNumber(garage, (i + 1));
@@ -70,14 +70,12 @@ namespace DeluxeParking
 
                 else
                 {
-                    result[i] = 999;
+                    result[i] = 99;
                 }
             }
 
             return result;
         }
-
-
 
         public static string ReturnNumber(ParkingSpace[] garage, int index)
         {
@@ -114,18 +112,40 @@ namespace DeluxeParking
                     }
                 }
             }
-
-
-
-
-
-
             return (value + 888);
+
+        }
+
+
+        public static int TheParker(int[] ParkingSpotValue)
+        {
+
+            for (int i = 1; i < 8; i++)
+            {
+
+                for (int j = 0; j < ParkingSpotValue.Length; j++)
+                {
+
+
+                    if ((i) == ParkingSpotValue[j])
+                    {
+                        return (j);
+                    }
+
+                }
+
+            }
+
+            return 55;
+        }
+
+                 
 
         }
 
 
 
 
-    }
+
 }
+
