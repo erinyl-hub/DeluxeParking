@@ -34,6 +34,8 @@ namespace DeluxeParking
                             //string input = Console.ReadLine();
                             //int amount = int.Parse(input);
 
+                            
+
                             Type type = vehicle.GetType();
 
                             if (type == typeof(Motorcycle))
@@ -78,7 +80,8 @@ namespace DeluxeParking
 
                                 if (garage[i].IsOccupied == true)
                                 {
-                                    Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | " /*+ parkingSpotValues[i]*/);
+                                    Console.WriteLine(i + " | " +  garage[i].Vehicles[0].RegistryNumber + " | " /*+ parkingSpotValues[i]*/);
+                                    Console.WriteLine(i + " | " + garage[i].Vehicles.Count + " | " /*+ parkingSpotValues[i]*/);
                                 }
                                 else
                                 {
