@@ -19,11 +19,15 @@ Fundera på lösning för hur två fordon ska parkera på samma plats, samt hur 
 Skapa metod som värderar parkeringsplatser.!
 
 Skapa metod som placerar ut genererade fordon utifrån platsvärdering!
-Skapa metod för att platsvärdera för bussar
+Skapa metod för att platsvärdera för bussar!
+Metod som kollar först kollar om det finns ledig plats för mc, dvs. en halv plats.!
+Text för parkering!
 
+Metod som stoppar när parkering är ful.
+Metod att ta bort fordon med reg nummer.
+Metod som vissar nästa fordon - möjlighet att tillåta parkera - eller ta nytt fordon
+Metod som vissar inkomst.
 
-
-Metod som kollar först kollar om det finns ledig plats för mc, dvs. en halv plats.
 
 
 

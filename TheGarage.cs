@@ -28,43 +28,48 @@ namespace DeluxeParking
                 {
                     case 1:
                         {
+                            int vehicleCount = 0;
                             TheFactory theFactory = new TheFactory();
                             Vehicle vehicle = theFactory.VehicleGenerator();
 
 
 
+
                             
+                            
+                                Type type = vehicle.GetType();
 
-                            Type type = vehicle.GetType();
+                                if (type == typeof(Motorcycle))
+                                {
+                                    if (OptimalParking.DoubleParkMc(garage, vehicle))
+                                    {
+                                        parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                                        garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                        vehicleCount++;
+                                    }
+                                }
 
-                            if (type == typeof(Motorcycle))
-                            {
-                                if(OptimalParking.DoubleParkMc(garage, vehicle))
+                                else if (type == typeof(Car))
                                 {
                                     parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
                                     garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
-                                }                           
-                            }
+                                    vehicleCount++;
+                                }
 
-                            else if (type == typeof(Car))
-                            {                              
-                                    parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);                            
-                            }
-
-                            else if (type == typeof(Bus))
-                            {
-                                parkingSpotValues = OptimalParking.OptimalParkingTwo(garage);
-                                garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
-                                garage[OptimalParking.TheParker(parkingSpotValues) + 1].Vehicles.Add(vehicle);
-                            }
-
-
+                                else if (type == typeof(Bus))
+                                {
+                                    parkingSpotValues = OptimalParking.OptimalParkingTwo(garage);
+                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                    garage[OptimalParking.TheParker(parkingSpotValues) + 1].Vehicles.Add(vehicle);
+                                    vehicleCount++;
+                                }
                             
 
 
 
-                            
+
+
+
 
                             break;
                         }
@@ -75,21 +80,24 @@ namespace DeluxeParking
 
 
                             Console.Clear();
-                            for (int i = 0; i < garage.Length; i++)
-                            {
 
-                                if (garage[i].IsOccupied == true)
-                                {
-                                    Console.WriteLine(i + " | " +  garage[i].Vehicles[0].RegistryNumber + " | " /*+ parkingSpotValues[i]*/);
-                                    Console.WriteLine(i + " | " + garage[i].Vehicles.Count + " | " /*+ parkingSpotValues[i]*/);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Tomt   |    " /*+ parkingSpotValues[i]*/);
-                                }
+                            MsgOut.OutMsg(garage);
+
+                            //for (int i = 0; i < garage.Length; i++)
+                            //{
+
+                            //    if (garage[i].IsOccupied == true)
+                            //    {
+                            //        Console.WriteLine(i + " | " +  garage[i].Vehicles[0].RegistryNumber + " | " /*+ parkingSpotValues[i]*/);
+                            //        Console.WriteLine(i + " | " + garage[i].Vehicles.Count + " | " /*+ parkingSpotValues[i]*/);
+                            //    }
+                            //    else
+                            //    {
+                            //        Console.WriteLine("Tomt   |    " /*+ parkingSpotValues[i]*/);
+                            //    }
 
 
-                            }
+                            //}
 
 
                             break;
@@ -99,7 +107,7 @@ namespace DeluxeParking
                             Console.Clear();
                             for (int i = 0; i < garage.Length; i++)
                             {
-                                
+
                                 if (garage[i].IsOccupied == true)
                                 {
                                     Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | ");
@@ -108,7 +116,7 @@ namespace DeluxeParking
                                 {
                                     Console.WriteLine("Tomt");
                                 }
-                               
+
 
                             }
 
