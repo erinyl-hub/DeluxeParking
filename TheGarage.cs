@@ -31,8 +31,7 @@ namespace DeluxeParking
                             TheFactory theFactory = new TheFactory();
                             Vehicle vehicle = theFactory.VehicleGenerator();
 
-                            //string input = Console.ReadLine();
-                            //int amount = int.Parse(input);
+
 
                             
 
@@ -43,20 +42,21 @@ namespace DeluxeParking
                                 if(OptimalParking.DoubleParkMc(garage, vehicle))
                                 {
                                     parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                    garage[OptimalParking.TheParkerOne(parkingSpotValues)].Vehicles.Add(vehicle);
                                 }                           
                             }
 
                             else if (type == typeof(Car))
                             {                              
                                     parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                    garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);                            
+                                    garage[OptimalParking.TheParkerOne(parkingSpotValues)].Vehicles.Add(vehicle);                            
                             }
 
                             else if (type == typeof(Bus))
                             {
-                                parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                parkingSpotValues = OptimalParking.OptimalParkingTwo(garage);
+                                garage[OptimalParking.TheParkerTwo(parkingSpotValues)].Vehicles.Add(vehicle);
+                                garage[OptimalParking.TheParkerTwo(parkingSpotValues) + 1].Vehicles.Add(vehicle);
                             }
 
 
