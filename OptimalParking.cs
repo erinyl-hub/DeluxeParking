@@ -180,7 +180,7 @@ namespace DeluxeParking
 
                 }
 
-                else if (i > 1 && i < 13)
+                else if (i > 1 && i < 12)
                 {
                     if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
                     {
