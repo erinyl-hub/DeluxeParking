@@ -112,7 +112,7 @@ namespace DeluxeParking
                     }
                 }
             }
-            return (value + 8888);
+            return (value + 8877);
 
         }
 
@@ -154,56 +154,67 @@ namespace DeluxeParking
         public static int[] OptimalParkingTwo(ParkingSpace[] garage)
         {
             int[] result = new int[15];
-            for (int i = 0; i < garage.Length; i++)
+            for (int i = 0; i < (garage.Length - 1); i++)
             {
                 string parkingCode = "";
+                int ParkingSpotValue = 0;
 
-                if (i == 0)
+                if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
                 {
-                    if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
+
+
+                    if (i == 0)
                     {
-                        parkingCode += "00";
-                        parkingCode += ReturnNumber(garage, (i + 2));
-                        parkingCode += ReturnNumber(garage, (i + 3));
+                        
+                        
+                            parkingCode += "00";
+                            parkingCode += ReturnNumber(garage, (i + 2));
+                            parkingCode += ReturnNumber(garage, (i + 3));
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);
+                       
                     }
+
+                    else if (i == 1)
+                    {
+                        
+                        
+                            parkingCode += "0";
+                            parkingCode += ReturnNumber(garage, (i - 1));
+                            parkingCode += ReturnNumber(garage, (i + 2));
+                            parkingCode += ReturnNumber(garage, (i + 3));
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);
+                        
+
+                    }
+
+                    else if (i > 1 && i < 12)
+                    {
+                        
+                        
+                            parkingCode += ReturnNumber(garage, (i - 2));
+                            parkingCode += ReturnNumber(garage, (i - 1));
+                            parkingCode += ReturnNumber(garage, (i + 2));
+                            parkingCode += ReturnNumber(garage, (i + 3));
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);
+                        
+                    }
+
+                    else if (i == 13)
+                    {
+                        
+                            parkingCode += ReturnNumber(garage, (i - 2));
+                            parkingCode += ReturnNumber(garage, (i - 1));
+                            parkingCode += ReturnNumber(garage, (i + 1));
+                            parkingCode += "0";
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);
+                        
+                    }
+                    
+
+                    result[i] = ParkingSpotValue;
                 }
-
-                else if (i == 1)
-                {
-                    if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
-                    {
-                        parkingCode += "0";
-                        parkingCode += ReturnNumber(garage, (i - 1));
-                        parkingCode += ReturnNumber(garage, (i + 2));
-                        parkingCode += ReturnNumber(garage, (i + 3));
-                    }
-
-                }
-
-                else if (i > 1 && i < 12)
-                {
-                    if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
-                    {
-                        parkingCode += ReturnNumber(garage, (i - 2));
-                        parkingCode += ReturnNumber(garage, (i - 1));
-                        parkingCode += ReturnNumber(garage, (i + 2));
-                        parkingCode += ReturnNumber(garage, (i + 3));
-                    }
-                }
-
-                else if (i == 13)
-                {
-                    if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
-                    {
-                        parkingCode += ReturnNumber(garage, (i - 2));
-                        parkingCode += ReturnNumber(garage, (i - 1));
-                        parkingCode += ReturnNumber(garage, (i + 1));
-                        parkingCode += "0";
-                    }
-                }          
-                int ParkingSpotValue = ParkingValueDouble(parkingCode);
-
-                result[i] = ParkingSpotValue;
+                else
+                    result[i] = 99;
             }
 
             return result;
@@ -225,6 +236,28 @@ namespace DeluxeParking
             }
             return (value + 8888);
 
+        }
+
+        public static bool FulHouse(int[] resultat, int vehicleDif)
+        {
+            int fulCount = 0;
+            bool fulHouse = false;
+
+            for (int i = 0; i < resultat.Length; i++)
+            {
+                if (resultat[i] == 99)
+                {
+                    fulCount++;
+                }
+
+            }
+
+            if (fulCount == vehicleDif)
+            {
+                return true;
+            }
+
+            return false;
         }
 
 

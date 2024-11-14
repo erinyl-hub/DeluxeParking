@@ -77,6 +77,44 @@ namespace DeluxeParking
             }
             return null;
         }
+
+        public static void RemoveVehicle(ParkingSpace[] garage)
+        {
+            Console.Write("Enter registration number of vehicle to remove: ");
+            string remove = Console.ReadLine();
+
+            for (int i = 0; i < garage.Length; i++)
+            {
+                if (garage[i].IsOccupied)
+                {
+                    if (garage[i].Vehicles[0].RegistryNumber == remove && garage[(i + 1)].Vehicles[0].RegistryNumber == remove)
+                    {
+                        Console.WriteLine("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed");
+                        garage[i].Vehicles.RemoveAt(0);
+                        garage[(i+1)].Vehicles.RemoveAt(0);
+                        Console.WriteLine("Press key to continue...");
+                        Console.ReadKey();
+                    }
+
+                    else if (garage[i].Vehicles[0].RegistryNumber == remove)
+                    {
+                        Console.WriteLine("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed");
+                        garage[i].Vehicles.RemoveAt(0);
+                        Console.WriteLine("Press key to continue...");
+                        Console.ReadKey();
+                    }
+
+                    else if (garage[i].Vehicles.Count > 1 && garage[i].Vehicles[1].RegistryNumber == remove)
+                    {
+                        Console.WriteLine("Vehicle " + garage[i].Vehicles[1].RegistryNumber + " will be removed");
+                        garage[i].Vehicles.RemoveAt(1);
+                        Console.WriteLine("Press key to continue...");
+                        Console.ReadKey();
+                    }
+                }
+
+            }
+        }
        
 
     }

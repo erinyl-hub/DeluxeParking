@@ -16,122 +16,104 @@ namespace DeluxeParking
             ParkingSpace[] garage = new ParkingSpace[15];
 
             ParkingSpace.GenerateParking(garage);
-
+            MsgOut.OutMsg(garage);
             while (true)
             {
-                Console.WriteLine("Meny Val:");
+
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 int switchChoise = keyInfo.KeyChar - '0';
                 int[] parkingSpotValues;
+                Console.Clear();
+                MsgOut.OutMsg(garage);
 
                 switch (switchChoise)
                 {
                     case 1:
                         {
-                            int vehicleCount = 0;
+
                             TheFactory theFactory = new TheFactory();
                             Vehicle vehicle = theFactory.VehicleGenerator();
 
+                            Type type = vehicle.GetType();
 
-
-
-                            
-                            
-                                Type type = vehicle.GetType();
-
-                                if (type == typeof(Motorcycle))
-                                {
-                                    if (OptimalParking.DoubleParkMc(garage, vehicle))
-                                    {
-                                        parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
-                                        garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
-                                        vehicleCount++;
-                                    }
-                                }
-
-                                else if (type == typeof(Car))
+                            if (type == typeof(Motorcycle))
+                            {
+                                if (OptimalParking.DoubleParkMc(garage, vehicle))
                                 {
                                     parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                                    if (!OptimalParking.FulHouse(parkingSpotValues, 15))
+                                    {
+                                        garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Funkar 1");
+                                        Console.ReadLine();
+                                    }
+                                }
+                            }
+
+                            else if (type == typeof(Car))
+                            {
+                                parkingSpotValues = OptimalParking.OptimalParkingOne(garage);
+                                if (!OptimalParking.FulHouse(parkingSpotValues, 15))
+                                {
                                     garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
-                                    vehicleCount++;
                                 }
 
-                                else if (type == typeof(Bus))
+                                else
                                 {
-                                    parkingSpotValues = OptimalParking.OptimalParkingTwo(garage);
+                                    Console.WriteLine("Funkar 2");
+                                    Console.ReadLine();
+                                }
+                            }
+
+                            else if (type == typeof(Bus))
+                            {
+                                parkingSpotValues = OptimalParking.OptimalParkingTwo(garage);
+                                if (!OptimalParking.FulHouse(parkingSpotValues, 14))
+                                {
                                     garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
                                     garage[OptimalParking.TheParker(parkingSpotValues) + 1].Vehicles.Add(vehicle);
-                                    vehicleCount++;
                                 }
-                            
-
-
-
-
-
+                                else
+                                {
+                                    Console.WriteLine("Funkar 3");
+                                    Console.ReadLine();
+                                }
+                            }
 
 
                             break;
                         }
                     case 2:
                         {
-                            /*int[] */
 
-
-
-                            Console.Clear();
-
-                            MsgOut.OutMsg(garage);
-
-                            //for (int i = 0; i < garage.Length; i++)
-                            //{
-
-                            //    if (garage[i].IsOccupied == true)
-                            //    {
-                            //        Console.WriteLine(i + " | " +  garage[i].Vehicles[0].RegistryNumber + " | " /*+ parkingSpotValues[i]*/);
-                            //        Console.WriteLine(i + " | " + garage[i].Vehicles.Count + " | " /*+ parkingSpotValues[i]*/);
-                            //    }
-                            //    else
-                            //    {
-                            //        Console.WriteLine("Tomt   |    " /*+ parkingSpotValues[i]*/);
-                            //    }
-
-
-                            //}
-
+                            TheFactory.RemoveVehicle(garage);
 
                             break;
                         }
                     default:
                         {
-                            Console.Clear();
-                            for (int i = 0; i < garage.Length; i++)
-                            {
 
-                                if (garage[i].IsOccupied == true)
-                                {
-                                    Console.WriteLine(garage[i].Vehicles[0].RegistryNumber + " | ");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Tomt");
-                                }
-
-
-                            }
-
-                            Console.WriteLine("övrigt:");
-                            break;
                         }
+
+                        Console.WriteLine("övrigt:");
+                        break;
                 }
 
-
+                Console.Clear();
+                MsgOut.OutMsg(garage);
 
             }
+
 
 
         }
 
 
     }
+
+
 }
+
