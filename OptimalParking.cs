@@ -127,8 +127,6 @@ namespace DeluxeParking
 
         public static bool DoubleParkMc(ParkingSpace[] garage, Vehicle vehicle)
         {
-            bool park;
-
             for (int i = 0; i < garage.Length; i++)
             {
                 if (garage[i].IsOccupied)
