@@ -14,7 +14,6 @@ namespace DeluxeParking
         public static void RunGarage()
         {
             ParkingSpace[] garage = new ParkingSpace[15];
-
             ParkingSpace.GenerateParking(garage);
             MsgOut.OutMsg(garage);
             while (true)
@@ -23,17 +22,16 @@ namespace DeluxeParking
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 int switchChoise = keyInfo.KeyChar - '0';
                 int[] parkingSpotValues;
-                Console.Clear();
-                MsgOut.OutMsg(garage);
+                TheFactory theFactory = new TheFactory();
+                Vehicle vehicle = theFactory.VehicleGenerator();
+                bool fulGarage =  false;
 
                 switch (switchChoise)
                 {
                     case 1:
                         {
 
-                            TheFactory theFactory = new TheFactory();
-                            Vehicle vehicle = theFactory.VehicleGenerator();
-
+                            
                             Type type = vehicle.GetType();
 
                             if (type == typeof(Motorcycle))
@@ -47,8 +45,7 @@ namespace DeluxeParking
                                     }
                                     else
                                     {
-                                        Console.WriteLine("Funkar 1");
-                                        Console.ReadLine();
+                                        fulGarage = true;
                                     }
                                 }
                             }
@@ -63,8 +60,7 @@ namespace DeluxeParking
 
                                 else
                                 {
-                                    Console.WriteLine("Funkar 2");
-                                    Console.ReadLine();
+                                    fulGarage = true;
                                 }
                             }
 
@@ -78,8 +74,7 @@ namespace DeluxeParking
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Funkar 3");
-                                    Console.ReadLine();
+                                    fulGarage = true;
                                 }
                             }
 
@@ -103,6 +98,7 @@ namespace DeluxeParking
                 }
 
                 Console.Clear();
+                if (fulGarage) { MsgOut.NoSpaceMsg(vehicle); }                  
                 MsgOut.OutMsg(garage);
 
             }

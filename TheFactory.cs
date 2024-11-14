@@ -80,6 +80,7 @@ namespace DeluxeParking
 
         public static void RemoveVehicle(ParkingSpace[] garage)
         {
+            Console.WriteLine();
             Console.Write("Enter registration number of vehicle to remove: ");
             string remove = Console.ReadLine();
 
@@ -87,7 +88,7 @@ namespace DeluxeParking
             {
                 if (garage[i].IsOccupied)
                 {
-                    if (garage[i].Vehicles[0].RegistryNumber == remove && garage[(i + 1)].Vehicles[0].RegistryNumber == remove)
+                    if (garage[i].Vehicles[0].RegistryNumber == remove && garage[i].Vehicles[0].VehicleType == 3)
                     {
                         Console.WriteLine("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed");
                         garage[i].Vehicles.RemoveAt(0);
