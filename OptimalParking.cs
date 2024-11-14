@@ -37,7 +37,6 @@ namespace DeluxeParking
 
                     }
 
-
                     else if (i > 1 && i < 13)
                     {
                         parkingCode += ReturnNumber(garage, (i - 2));
@@ -73,7 +72,6 @@ namespace DeluxeParking
                     result[i] = 99;
                 }
             }
-
             return result;
         }
 
@@ -93,14 +91,13 @@ namespace DeluxeParking
             {
                 parkingCode += "3";
             }
-
             return parkingCode;
         }
 
         public static int ParkingValueSingel(string parkingCode)
         {
             int value = 0;
-            SingelParking singelParking = new SingelParking();
+            ParkingValues singelParking = new ParkingValues();
 
             for (int i = 0; i < singelParking.parkingValueSingel.Count; i++)
             {
@@ -115,7 +112,6 @@ namespace DeluxeParking
             return (value + 8877);
 
         }
-
 
         public static int TheParker(int[] ParkingSpotValue)
         {
@@ -164,65 +160,55 @@ namespace DeluxeParking
 
 
                     if (i == 0)
-                    {
-                        
-                        
+                    {                                           
                             parkingCode += "00";
                             parkingCode += ReturnNumber(garage, (i + 2));
                             parkingCode += ReturnNumber(garage, (i + 3));
-                            ParkingSpotValue = ParkingValueDouble(parkingCode);
-                       
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);                     
                     }
 
                     else if (i == 1)
                     {
-                        
-                        
+                      
                             parkingCode += "0";
                             parkingCode += ReturnNumber(garage, (i - 1));
                             parkingCode += ReturnNumber(garage, (i + 2));
                             parkingCode += ReturnNumber(garage, (i + 3));
-                            ParkingSpotValue = ParkingValueDouble(parkingCode);
-                        
-
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);                     
                     }
 
                     else if (i > 1 && i < 12)
-                    {
-                        
-                        
+                    {                       
                             parkingCode += ReturnNumber(garage, (i - 2));
                             parkingCode += ReturnNumber(garage, (i - 1));
                             parkingCode += ReturnNumber(garage, (i + 2));
                             parkingCode += ReturnNumber(garage, (i + 3));
-                            ParkingSpotValue = ParkingValueDouble(parkingCode);
-                        
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);                      
                     }
 
                     else if (i == 13)
-                    {
-                        
+                    {                      
                             parkingCode += ReturnNumber(garage, (i - 2));
                             parkingCode += ReturnNumber(garage, (i - 1));
                             parkingCode += ReturnNumber(garage, (i + 1));
                             parkingCode += "0";
-                            ParkingSpotValue = ParkingValueDouble(parkingCode);
-                        
+                            ParkingSpotValue = ParkingValueDouble(parkingCode);                       
                     }
-                    
-
                     result[i] = ParkingSpotValue;
                 }
                 else
+                { 
                     result[i] = 99;
+                }
             }
-
             return result;
         }
+
+
         public static int ParkingValueDouble(string parkingCode)
         {
             int value = 0;
-            SingelParking singelParking = new SingelParking();
+            ParkingValues singelParking = new ParkingValues();
 
             for (int i = 0; i < singelParking.parkingValueDouble.Count; i++)
             {
@@ -235,7 +221,6 @@ namespace DeluxeParking
                 }
             }
             return (value + 8888);
-
         }
 
         public static bool FulHouse(int[] resultat, int vehicleDif)
@@ -249,27 +234,14 @@ namespace DeluxeParking
                 {
                     fulCount++;
                 }
-
             }
 
             if (fulCount == vehicleDif)
             {
                 return true;
             }
-
             return false;
         }
-
-
-
-
-
-
     }
-
-
-
-
-
 }
 

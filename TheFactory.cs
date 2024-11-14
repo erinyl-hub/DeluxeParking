@@ -52,7 +52,6 @@ namespace DeluxeParking
             int rnd = random.Next(0, 17);
             string color = vehicleInfo.colors[rnd];
             
-
             switch (VehicaleType)
             {
                 case 0:
@@ -113,10 +112,7 @@ namespace DeluxeParking
                         Console.ReadKey();
                     }
                 }
-
             }
-        }
-       
-
+        }    
     }
 }

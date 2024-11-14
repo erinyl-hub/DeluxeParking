@@ -9,7 +9,6 @@ namespace DeluxeParking
     internal class ParkingSpace
     {
         public List<Vehicle> Vehicles { get; set; } = new List<Vehicle>();
-
         public bool IsOccupied => Vehicles.Count > 0;
 
 
@@ -18,10 +17,7 @@ namespace DeluxeParking
             for (int i = 0; i < garage.Length; i++)
             {
                 garage[i] = new ParkingSpace();
-
             }
-
         }
-
     }
 }

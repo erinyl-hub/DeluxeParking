@@ -29,9 +29,7 @@ namespace DeluxeParking
                 switch (switchChoise)
                 {
                     case 1:
-                        {
-
-                            
+                        {                          
                             Type type = vehicle.GetType();
 
                             if (type == typeof(Motorcycle))
@@ -43,6 +41,7 @@ namespace DeluxeParking
                                     {
                                         garage[OptimalParking.TheParker(parkingSpotValues)].Vehicles.Add(vehicle);
                                     }
+
                                     else
                                     {
                                         fulGarage = true;
@@ -77,23 +76,18 @@ namespace DeluxeParking
                                     fulGarage = true;
                                 }
                             }
-
-
                             break;
+
                         }
                     case 2:
                         {
-
                             TheFactory.RemoveVehicle(garage);
-
                             break;
                         }
                     default:
-                        {
+                        
 
-                        }
-
-                        Console.WriteLine("övrigt:");
+                        Console.WriteLine("Wrong Input...");
                         break;
                 }
 

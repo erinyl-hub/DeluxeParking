@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeluxeParking
 {
-    internal class SingelParking
+    internal class ParkingValues
     {
 
 

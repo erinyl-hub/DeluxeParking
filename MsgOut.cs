@@ -27,6 +27,7 @@ namespace DeluxeParking
                 Console.Write("Motorcycle  -  " + McNoEntry.RegistryNumber +
                         "  -  " + McNoEntry.VehicleColor + " - " + McNoEntry.Brand);
             }
+
             else if (vehicleNoEntry is Bus)
             {
                 Bus busNoEntry = (Bus)vehicleNoEntry;
@@ -51,7 +52,6 @@ namespace DeluxeParking
 
             for (int i = 0; i < garage.Length; i++)
             {
-
                 if (garage[i].Vehicles.Count != 0)
                 {
                     Vehicle vehicle = garage[i].Vehicles[0];
@@ -62,8 +62,8 @@ namespace DeluxeParking
 
                         Console.WriteLine("Space [ " + (i + 1) + " ] Car     -      " + car.RegistryNumber +
                             "    -    " + car.VehicleColor + "  -  " + (car.ElectricCar == true ? "Electric Car" : "Gasolin Car"));
-
                     }
+
                     else if (vehicle is Motorcycle)
                     {
                         Motorcycle mc = (Motorcycle)vehicle;
@@ -87,10 +87,10 @@ namespace DeluxeParking
                                 "    -    " + mc.VehicleColor + "  -  " + mc.Brand);
                         }
                     }
+
                     else if (vehicle is Bus)
                     {
                         Bus bus = (Bus)vehicle;
-
                         Console.WriteLine("Space [" + (i + 1) + "/" + (i + 2) + "] Bus    -      " + bus.RegistryNumber + "    -    " + bus.VehicleColor + "  -  " + bus.Passengers);
                         i++;
                     }

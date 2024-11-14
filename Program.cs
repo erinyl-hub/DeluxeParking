@@ -4,9 +4,7 @@
     {
         static void Main(string[] args)
         {
-
             TheGarage.RunGarage();
-
         }
     }
 }

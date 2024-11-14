@@ -15,17 +15,14 @@ namespace DeluxeParking
         public Vehicle(string registryNumber, string vehicleColor)
         {
             RegistryNumber = registryNumber;
-            VehicleColor = vehicleColor;
-            
+            VehicleColor = vehicleColor;        
         }
-
     }
 
     internal class Car : Vehicle
     {
         public bool ElectricCar { get; set; }
         public override int VehicleType { get; set; } = 1;
-
         public Car(string registryNumber, string vehicleColor, bool electricCar) : base(registryNumber, vehicleColor)
         {
             ElectricCar = electricCar;
@@ -36,8 +33,6 @@ namespace DeluxeParking
     {
         public string Brand { get; set; }
         public override int VehicleType { get; set; } = 2;
-
-
         public Motorcycle(string registryNumber, string vehicleColor, string brand) : base(registryNumber, vehicleColor)
         {
             Brand = brand;
@@ -48,8 +43,6 @@ namespace DeluxeParking
     {
         public int Passengers { get; set; }
         public override int VehicleType { get; set; } = 3;
-
-
         public Bus(string registryNumber, string vehicleColor, int passengers) : base(registryNumber, vehicleColor)
         {
             Passengers = passengers;
