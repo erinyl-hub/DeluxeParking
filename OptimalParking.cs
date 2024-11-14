@@ -219,7 +219,6 @@ namespace DeluxeParking
         public static bool FulHouse(int[] resultat, int vehicleDif)
         {
             int fulCount = 0;
-            bool fulHouse = false;
 
             for (int i = 0; i < resultat.Length; i++)
             {
