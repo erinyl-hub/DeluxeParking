@@ -8,9 +8,7 @@ namespace DeluxeParking
 {
     internal class ParkingValues
     {
-
-
-        public List<List<string>> parkingValueSingel = new List<List<string>>()
+        public List<List<string>> ParkingValueSingel { get; } = new List<List<string>>()
         {
         new 
             List<string>{"1133", "1233", "3311", "3322", "3333", "1100", "0011", "3300", "0033", "3321", "2233"},
@@ -30,7 +28,7 @@ namespace DeluxeParking
             List<string>{"1111", "1112", "2111", "1113", "3111", "2110", "0113", "0112", "0111", "1110", "3110"}
     };
 
-        public List<List<string>> parkingValueDouble = new List<List<string>>()
+        public List<List<string>> ParkingValueDouble { get; } = new List<List<string>>()
         {
         new
             List<string>{"3333", "2233", "3322", "1133", "3311", "3323", "3233", "1233", "3321", "0111", "1110", "0112", "2110", "0121", "1210", "0122",

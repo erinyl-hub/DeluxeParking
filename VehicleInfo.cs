@@ -8,15 +8,14 @@ namespace DeluxeParking
 {
     internal class VehicleInfo
     {
-        public string[] colors = {
+        public string[] colors { get; } = {
             "Red", "Blue", "Green", "Yellow", "Black",
             "White", "Gray", "Orange", "Purple",
             "Pink", "Brown", "Turquoise", "Magenta",
             "Beige", "Gold", "Silver", "Navy Blue"
         };
 
-
-        public string[] motorcycleBrands = {
+        public string[] motorcycleBrands { get; } = {
             "Harley-Davidson", "Yamaha", "Honda", "Kawasaki",
             "Ducati", "BMW", "Suzuki", "Triumph",
             "KTM", "Aprilia", "Indian", "MV Agusta",

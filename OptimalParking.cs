@@ -99,11 +99,11 @@ namespace DeluxeParking
             int value = 0;
             ParkingValues singelParking = new ParkingValues();
 
-            for (int i = 0; i < singelParking.parkingValueSingel.Count; i++)
+            for (int i = 0; i < singelParking.ParkingValueSingel.Count; i++)
             {
-                for (int j = 0; j < singelParking.parkingValueSingel[i].Count; j++)
+                for (int j = 0; j < singelParking.ParkingValueSingel[i].Count; j++)
                 {
-                    if (singelParking.parkingValueSingel[i][j] == parkingCode)
+                    if (singelParking.ParkingValueSingel[i][j] == parkingCode)
                     {
                         return (i + 1);
                     }
@@ -210,11 +210,11 @@ namespace DeluxeParking
             int value = 0;
             ParkingValues singelParking = new ParkingValues();
 
-            for (int i = 0; i < singelParking.parkingValueDouble.Count; i++)
+            for (int i = 0; i < singelParking.ParkingValueDouble.Count; i++)
             {
-                for (int j = 0; j < singelParking.parkingValueDouble[i].Count; j++)
+                for (int j = 0; j < singelParking.ParkingValueDouble[i].Count; j++)
                 {
-                    if (singelParking.parkingValueDouble[i][j] == parkingCode)
+                    if (singelParking.ParkingValueDouble[i][j] == parkingCode)
                     {
                         return (i + 1);
                     }

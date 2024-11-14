@@ -60,7 +60,7 @@ namespace DeluxeParking
                     {
                         Car car = (Car)vehicle;
 
-                        Console.WriteLine("Space [ " + (i + 1) + " ] Car     -      " + car.RegistryNumber +
+                        Console.WriteLine("Parking Space [ " + (i + 1) + " ] Car     -      " + car.RegistryNumber +
                             "    -    " + car.VehicleColor + "  -  " + (car.ElectricCar == true ? "Electric Car" : "Gasolin Car"));
                     }
 
@@ -70,20 +70,20 @@ namespace DeluxeParking
 
                         if (garage[i].Vehicles.Count > 1)
                         {
-                            Console.WriteLine("Space [ " + (i + 1) + " ] MCykel  -      " + mc.RegistryNumber +
+                            Console.WriteLine("Parking Space [ " + (i + 1) + " ] MCykel  -      " + mc.RegistryNumber +
                                 "    -    " + mc.VehicleColor + "  -  " + mc.Brand);
 
                             Vehicle mcCast = garage[i].Vehicles[1];
 
                             Motorcycle mcTwo = (Motorcycle)mcCast;
 
-                            Console.WriteLine("Space [ " + (i + 1) + " ] MCykel  -      " + mcTwo.RegistryNumber +
+                            Console.WriteLine("Parking Space [ " + (i + 1) + " ] MCykel  -      " + mcTwo.RegistryNumber +
                                 "    -    " + mcTwo.VehicleColor + "  -  " + mcTwo.Brand);
                         }
 
                         else
                         {
-                            Console.WriteLine("Space [ " + (i + 1) + " ] MCykel  -      " + mc.RegistryNumber +
+                            Console.WriteLine("Parking Space [ " + (i + 1) + " ] MCykel  -      " + mc.RegistryNumber +
                                 "    -    " + mc.VehicleColor + "  -  " + mc.Brand);
                         }
                     }
@@ -91,14 +91,14 @@ namespace DeluxeParking
                     else if (vehicle is Bus)
                     {
                         Bus bus = (Bus)vehicle;
-                        Console.WriteLine("Space [" + (i + 1) + "/" + (i + 2) + "] Bus    -      " + bus.RegistryNumber + "    -    " + bus.VehicleColor + "  -  " + bus.Passengers);
+                        Console.WriteLine("Parking Space [" + (i + 1) + "/" + (i + 2) + "] Bus    -      " + bus.RegistryNumber + "    -    " + bus.VehicleColor + "  -  " + bus.Passengers);
                         i++;
                     }
                 }
 
                 else
                 {
-                    Console.WriteLine("Space [ " + (i + 1) + " ] Empty");
+                    Console.WriteLine("Parking Space [ " + (i + 1) + " ] Empty");
                 }
             }
         }
