@@ -37,8 +37,6 @@ namespace DeluxeParking
 
             Console.WriteLine();
             Console.WriteLine();
-
-
         }
 
 
@@ -102,5 +100,15 @@ namespace DeluxeParking
                 }
             }
         }
+
+        public static void FeePerMinMsg(double feeAMin)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Revenue: " + feeAMin + " kr/min");          
+        }
+
+
+
+        
     }
 }

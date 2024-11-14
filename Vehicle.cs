@@ -11,6 +11,7 @@ namespace DeluxeParking
         public string RegistryNumber { get; set; }
         public string VehicleColor { get; set; }
         public virtual int VehicleType { get; set; }
+        public ParkingFee FeeInfo { get; set; } = new ParkingFee();
 
         public Vehicle(string registryNumber, string vehicleColor)
         {

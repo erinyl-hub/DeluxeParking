@@ -24,7 +24,6 @@ namespace DeluxeParking
 
                         parkingCode += ReturnNumber(garage, (i + 1));
                         parkingCode += ReturnNumber(garage, (i + 2));
-
                     }
 
                     else if (i == 1)
@@ -34,7 +33,6 @@ namespace DeluxeParking
                         parkingCode += ReturnNumber(garage, (i - 1));
                         parkingCode += ReturnNumber(garage, (i + 1));
                         parkingCode += ReturnNumber(garage, (i + 2));
-
                     }
 
                     else if (i > 1 && i < 13)
@@ -43,7 +41,6 @@ namespace DeluxeParking
                         parkingCode += ReturnNumber(garage, (i - 1));
                         parkingCode += ReturnNumber(garage, (i + 1));
                         parkingCode += ReturnNumber(garage, (i + 2));
-
                     }
 
                     else if (i == 13)
@@ -157,8 +154,6 @@ namespace DeluxeParking
 
                 if (!garage[i].IsOccupied && !garage[(i + 1)].IsOccupied)
                 {
-
-
                     if (i == 0)
                     {                                           
                             parkingCode += "00";

@@ -16,20 +16,25 @@ namespace DeluxeParking
             ParkingSpace[] garage = new ParkingSpace[15];
             ParkingSpace.GenerateParking(garage);
             MsgOut.OutMsg(garage);
+            double revenuePerMinute = 0;
+
+
             while (true)
             {
 
+                MsgOut.FeePerMinMsg(revenuePerMinute);
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 int switchChoise = keyInfo.KeyChar - '0';
                 int[] parkingSpotValues;
                 TheFactory theFactory = new TheFactory();
                 Vehicle vehicle = theFactory.VehicleGenerator();
-                bool fulGarage =  false;
+                bool fulGarage = false;
+
 
                 switch (switchChoise)
                 {
                     case 1:
-                        {                          
+                        {
                             Type type = vehicle.GetType();
 
                             if (type == typeof(Motorcycle))
@@ -84,16 +89,18 @@ namespace DeluxeParking
                             TheFactory.RemoveVehicle(garage);
                             break;
                         }
+
                     default:
-                        
+
 
                         Console.WriteLine("Wrong Input...");
                         break;
                 }
-
+                revenuePerMinute = ParkingFee.FeeCounter(garage);
                 Console.Clear();
-                if (fulGarage) { MsgOut.NoSpaceMsg(vehicle); }                  
+                if (fulGarage) { MsgOut.NoSpaceMsg(vehicle); }
                 MsgOut.OutMsg(garage);
+
 
             }
 

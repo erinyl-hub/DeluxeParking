@@ -91,7 +91,9 @@ namespace DeluxeParking
                 {
                     if (garage[i].Vehicles[0].RegistryNumber == remove && garage[i].Vehicles[0].VehicleType == 3)
                     {
-                        Console.WriteLine("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed");
+                        Console.Write("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed  -  ");
+                        Console.WriteLine("Total time spend: " + garage[i].Vehicles[0].FeeInfo.TimeStayed + " Min  -  " +
+                           "Total cost for stay: " + garage[i].Vehicles[0].FeeInfo.FeeAmount + " Kr");
                         garage[i].Vehicles.RemoveAt(0);
                         garage[(i+1)].Vehicles.RemoveAt(0);
                         Console.WriteLine("Press key to continue...");
@@ -101,7 +103,9 @@ namespace DeluxeParking
 
                     else if (garage[i].Vehicles[0].RegistryNumber == remove)
                     {
-                        Console.WriteLine("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed");
+                        Console.Write("Vehicle " + garage[i].Vehicles[0].RegistryNumber + " will be removed  -  ");
+                        Console.WriteLine("Total time spend: " + garage[i].Vehicles[0].FeeInfo.TimeStayed + " Min  -  " +
+                            "Total cost for stay: " + garage[i].Vehicles[0].FeeInfo.FeeAmount + " Kr");
                         garage[i].Vehicles.RemoveAt(0);
                         Console.WriteLine("Press key to continue...");
                         Console.ReadKey();
@@ -110,7 +114,9 @@ namespace DeluxeParking
 
                     else if (garage[i].Vehicles.Count > 1 && garage[i].Vehicles[1].RegistryNumber == remove)
                     {
-                        Console.WriteLine("Vehicle " + garage[i].Vehicles[1].RegistryNumber + " will be removed");
+                        Console.Write("Vehicle " + garage[i].Vehicles[1].RegistryNumber + " will be removed  -  ");
+                        Console.WriteLine("Total time spend: " + garage[i].Vehicles[1].FeeInfo.TimeStayed + " Min  -  " +
+                           "Total cost for stay: " + garage[i].Vehicles[1].FeeInfo.FeeAmount + " Kr");
                         garage[i].Vehicles.RemoveAt(1);
                         Console.WriteLine("Press key to continue...");
                         Console.ReadKey();
